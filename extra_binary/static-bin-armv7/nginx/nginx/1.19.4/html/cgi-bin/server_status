@@ -1,0 +1,31 @@
+#!/bin/sh
+
+IP=$(ifconfig | grep -v 127.0 | grep inet | grep -v :: | sed 's/\ /\n/g' |grep addr)
+
+echo "Content-type: text/html"
+echo "" 
+echo '<html>'
+echo '<head>'
+echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
+echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />'
+echo '<meta http-equiv="Pragma" content="no-cache" />'
+echo '<meta http-equiv="Expires" content="0" />'
+echo '<title>SERVER STATUS</title>'
+echo '</head>'
+echo '<body>'
+echo 'Last Update:'; date ;echo '<p></p>'
+echo '<div>HOSTNAME:</div>'; echo '<div>' ; hostname; echo '</div>';echo '<p></p>'
+echo '<div>CPU:</div>'
+cat /proc/stat |grep cpu |tail -1|awk '{print ($5*100)/($2+$3+$4+$5+$6+$7+$8+$9+$10)}'|awk '{print 100-$1}';echo '%';echo '<p></p>'
+echo '<div>RAM:</div>' ; cat /proc/meminfo | grep Mem  ;echo '<p></p>'
+echo '<div>IP:</div>' ; echo $IP ; echo '</div>';echo '<p></p>'
+echo '<div> CPU: </div>' ; cat /proc/cpuinfo | grep -E -w 'MHz|name|processor';echo '<p></p>'; 
+echo '<div>TEMPERATURE:</div>'; agetprop persist.sys.temperature ; echo '</div>';echo '<p></p>'
+echo '<div>RTSP URL:</div>'
+agetprop sys.camera_rtsp_url
+echo '<p></p>'
+echo '<div>agetprop:</div>' ; agetprop | grep -v wifi | grep -v key | sed 's/\[/\<div\>[/g';echo '<p></p>'
+echo '</div>'
+echo '</body>'
+echo '</html>'
+exit 0
