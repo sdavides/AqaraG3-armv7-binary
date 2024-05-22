@@ -28,7 +28,7 @@ This is a repository of armv7l static binaries of various versions compatible wi
 
 add on "/data/scripts/post_init.sh"
 
-    # Start NGINX+CGI - /php/ ->8081
+    # Start NGINX+CGI 8080 - /php/ ->8081
     /mnt/sdcard/extra_binary/nginx_start.sh
 ![immagine](https://github.com/sdavides/AqaraG3-armv7-binary/assets/31100253/6fe1e191-7309-404a-a5f8-a8c39e0cf05c)
 
