@@ -15,7 +15,7 @@ sleep 1
 #
 #start cgi socket 
 rm -f /tmp/fcgiwrap.sock
-/mnt/sdcard/extra_binary/armv7l-eabihf/fcgiwrap -s unix:/tmp/fcgiwrap.sock 2>/dev/null &
+/mnt/sdcard/extra_binary/static-bin-armv7/nginx/nginx/1.19.4/conf/fcgiwrap -s unix:/tmp/fcgiwrap.sock 2>/dev/null &
 #
 # START
 #
