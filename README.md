@@ -29,6 +29,7 @@ This is a repository of armv7l static binaries of various versions compatible wi
 add on "/data/scripts/post_init.sh"
 
     # Start NGINX+CGI 8080 - /php/ ->8081
+    # echo "UTC-01:00" > /etc/TZ # set timezone
     /mnt/sdcard/extra_binary/nginx_start.sh
     
 ![immagine](https://github.com/sdavides/AqaraG3-armv7-binary/assets/31100253/6fe1e191-7309-404a-a5f8-a8c39e0cf05c)
@@ -61,6 +62,7 @@ Get prop and move PTZ
 add on "/data/scripts/post_init.sh"
 
     # Start PHP-WEB 8081
+    # echo "UTC-01:00" > /etc/TZ # set timezone
     /mnt/sdcard/extra_binary/php_start.sh
     
 ![immagine](https://github.com/sdavides/AqaraG3-armv7-binary/assets/31100253/d4407c7e-3cef-4453-9ea3-1e63f6cdad00)
@@ -70,6 +72,7 @@ add on "/data/scripts/post_init.sh"
 
     # Start SSHD
     # WARNING: password for root change in "root"
+    # echo "UTC-01:00" > /etc/TZ # set timezone
     /mnt/sdcard/extra_binary/sshd_start.sh
 
 ## Crontab ##
